@@ -13,20 +13,23 @@ div.container {
 div.container div.ball {
   width: 100px;
   height: 100px;
+  margin: 10px;
   background-color: blueviolet;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.32, 0.18, 0.35, 0.23);
   /* transition-timing-function: linear; */
 }
-div.container:hover div.ball{
-    cursor: pointer;
-    border-radius: 50%;
-    transform: rotatez(60deg);
-    transform: translateX(400px);
-    transform: scale(2);
-    background-color: crimson;
-  }
-  /* {
+
+div.container:hover div.ball {
+  animation-duration: 3s;
+  animation-name: stylish-rotate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+
+  /* retain its final state */
+}
+/* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -50,9 +53,45 @@ div.container div.ball {
 
 div.container:hover div.ball {
   /* transform: rotateZ(120deg); */
-  /* transform: scale(2); */
-  /* transform: translateX(400px);
+/* transform: scale(2); */
+/* transform: translateX(400px);
   background-color: red;
   cursor: pointer; */
-  /* border-radius: 50%; */
+/* border-radius: 50%; }*/
+@keyframes stylish-rotate {
+  0% {
+    background-color: violet;
+  }
+  14% {
+    background-color: indigo;
+  }
+  28% {
+    background-color: blue;
+  }
+  42% {
+    background-color: green;
+  }
+  56% {
+    background-color: yellow;
+  }
+  70% {
+    transform: rotateZ(120deg);
+    background-color: orange;
+  }
+  84% {
+    background-color: red;
+    transform: rotateZ(360deg);
+    border-radius: 10px;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
 }
